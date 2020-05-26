@@ -1,0 +1,9 @@
+<div (click)="openMovieDetail()" class="row flex-wrap flex-grow-1 justify-content-between">
+    <div *ngFor="let movie of moviesList" class="border p-2 w-25 
+    text-center flex-wrap">
+        <img  src="/assets/movie-covers/{{movie.img}}">
+        <p>{{ movie.name }}</p>
+        <small>{{ movie.description}}</small>
+
+    </div>
+</div>
