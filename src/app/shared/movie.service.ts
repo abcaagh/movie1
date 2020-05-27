@@ -287,4 +287,12 @@ export class MovieService {
 	getById(id: number) {
 		return this.moviesList.find((item) => item.id == id);
 	}
+
+	sortByGenre(genre: string): Movie[]{
+		return this.moviesList.filter(item => {
+			return item.genres.find(innerItem => {
+				return innerItem == genre
+			})
+		})
+	}
 }

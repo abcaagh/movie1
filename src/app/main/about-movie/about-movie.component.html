@@ -1,1 +1,14 @@
-<p>about-movie works!</p>
+<div class="container custom">
+    <div class="wrap d-flex">
+        <div class="img-body font-weight-bold w-25">
+            <img src="/assets/movie-covers/{{movie.img}}" alt="{{movie.name}}">
+        </div>
+        <div class="content-body w-50">
+            <h5 class="card-title font-weight-bold">{{movie.name}}</h5>
+            <p>{{movie.description}}</p>
+            <p class="badge badge-danger">{{movie.rate}}</p>
+            <p class="badge badge-light">{{movie.length}}</p>
+            <p>{{movie.genres}}</p>
+        </div>
+    </div>
+</div>

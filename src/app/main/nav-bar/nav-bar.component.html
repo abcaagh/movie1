@@ -1,0 +1,7 @@
+<div class=" w-100 mb-3 mt-1  mt-50px">
+    <nav class="nav flex-wrap justify-content-center d-off d-on ">
+        <li  class=" pl-2 pr-2 " [routerLink]="['/genre', movieGenre]" *ngFor="let movieGenre of movieGenres">
+            <a routerLinkActive="active" role="button" class="hover-custom p-1 text-black font-weight-bold">{{movieGenre | titlecase}}</a>
+        </li>
+    </nav>
+</div>

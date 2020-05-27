@@ -1,9 +1,23 @@
-<div (click)="openMovieDetail()" class="row flex-wrap flex-grow-1 justify-content-between">
-    <div *ngFor="let movie of moviesList" class="border p-2 w-25 
-    text-center flex-wrap">
-        <img  src="/assets/movie-covers/{{movie.img}}">
-        <p>{{ movie.name }}</p>
-        <small>{{ movie.description}}</small>
-
+<div *ngIf="moviesList.length;else loading" class="mb-3 mtx-5 row d-flex  justify-content-around">
+    <div role="button" (click)="openMovieInDetail(movie)" *ngFor="let movie of moviesList"
+        class="border  col-md-5  mb-3  col-5 d-flex align-items-center ml-custom">
+        <div class="">
+            <img src="/assets/movie-covers/{{movie.img}}" class="img-fluid" alt="{{movie.name}}">
+        </div>
+        <div class="">
+            <div class="card-body">
+                <h5 class="card-title">{{movie.name}}</h5>
+                <p class="card-text badge badge-danger">{{movie.rate}}</p>
+                <p class="card-text">{{movie.length}}</p>
+                <small (click)="openGenre(genre)" router class="hover" *ngFor="let genre of movie.genres"> {{ genre| titlecase }}</small>
+            </div>
+        </div>
     </div>
 </div>
+<ng-template #loading>
+    <div class="col  d-flex justify-content-center">
+        <div class="spinner-border spinner-grow-sm" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</ng-template>

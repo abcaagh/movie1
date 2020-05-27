@@ -1,0 +1,19 @@
+<div class="wrap">
+    <div  *ngIf="moviesList.length;" class="row d-flex justify-content-center">
+        
+        <div (click)="openMovieInDetail(movie)" class="movie-item d-flex flex-column align-items-center" role="button" (click)="openMovieInDetail(movie)" *ngFor="let movie of moviesList">
+            <div class="">
+                <img src="/assets/movie-covers/{{movie.img}}" alt="{{movie.name}}">
+            </div>
+            <div class="">
+                <div class="">
+                    <h5 class="card-title">{{movie.name}}</h5>
+                    <p class="card-text">{{movie.rate}}</p>
+                    <p class="card-text">{{movie.length}}</p>
+                    <small (click)="openGenre(genre)" router class="hover" *ngFor="let genre of movie.genres"> {{ genre| titlecase }}</small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

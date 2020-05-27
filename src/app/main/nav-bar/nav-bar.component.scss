@@ -1,0 +1,29 @@
+.bg-color {
+	a {
+		font-family: "Lato", sans-serif;
+	}
+}
+
+.hover-custom {
+	color: #b7bdbb;
+	&:hover {
+		color: #e43f5a;
+	}
+}
+.mt-50px {
+	position: absolute;
+	top: 50px;
+}
+.active {
+	color: #e43f5a;
+}
+
+@media (max-width: 576px) {
+	.d-off {
+        display: none;
+        margin: 0;
+    }
+    .mt-50px {
+        display: none;
+    }
+}

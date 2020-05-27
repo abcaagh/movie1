@@ -1,26 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MovieService } from 'src/app/shared/movie.service';
+import { Movie } from 'src/app/shared/interface';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-movie-content',
-  templateUrl: './movie-content.component.html',
-  styleUrls: ['./movie-content.component.scss']
+	selector: 'app-movie-content',
+	templateUrl: './movie-content.component.html',
+	styleUrls: ['./movie-content.component.scss'],
 })
 export class MovieContentComponent implements OnInit {
+	public moviesList: Movie[] = [];
 
-  public moviesList = []
-  
-  constructor(public movieService: MovieService,) { }
+	constructor(public movieService: MovieService, private route: Router) {}
 
-  ngOnInit(): void {
-    this.moviesList.push(this.movieService.getById(1));
-    this.moviesList.push(this.movieService.getById(5));
-    this.moviesList.push(this.movieService.getById(7));
-    console.log(this.moviesList);
-    
-  }
+	ngOnInit(): void {
+		this.renderMovie()
+	}
 
-  renderHtml(){
-  }
-  openMovieDetail(){}
+	openGenre(genre){
+		this.route.navigate(['/genre', genre])
+	}
+
+	renderMovie() {
+		for (let i = 1; i < this.movieService.moviesList.length; i++) {
+			this.moviesList.push(this.movieService.getById(i))	
+		}
+	}
+
+	openMovieInDetail(movie: Movie) {
+		this.route.navigate(['/watch', movie.name], {
+			queryParams: {
+				id: movie.id,
+			},
+		});
+	}
 }
