@@ -4,7 +4,7 @@
 
 ## Installation
 
-Run  in terminal
+Install the npm packages
 
 ```npm install```
 
