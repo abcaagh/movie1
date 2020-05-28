@@ -1,0 +1,20 @@
+<div class="wrap ">
+    <div class=" row justify-content-around">
+        <div (click)="openMovieInDetail(movie)"
+            class="movie-item mb-2 d-flex col-6 col-sm-6 col-md-4 align-items-center justify-content-start"
+            role="button" *ngFor="let movie of moviesList">
+                <div class="">
+                    <img src="/assets/movie-covers/{{movie.img}}" class="img-fluid" alt="{{movie.name}}">
+                </div>
+                <div class="ml-2">
+                    <h5 class="card-title">{{movie.name}}</h5>
+                    <p class="card-text badge badge-danger">{{movie.rate}}</p>
+                    <p class="card-text ">{{movie.length}}</p>
+                    <small class="p-1" [ngClass]="{'badge badge-secondary' : genre == currentGenre }" class="hover"
+                        *ngFor="let genre of movie.genres" (click)="openGenre(genre)">
+                        {{ genre| titlecase }}</small>
+                </div>
+        </div>
+
+    </div>
+</div>

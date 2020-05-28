@@ -28,7 +28,7 @@ export class MovieContentComponent implements OnInit {
 	}
 
 	openMovieInDetail(movie: Movie) {
-		this.route.navigate(['/watch', movie.name], {
+		this.route.navigate(['/genre','about', movie.name], {
 			queryParams: {
 				id: movie.id,
 			},

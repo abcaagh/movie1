@@ -1,0 +1,21 @@
+.wrap {
+	position: absolute;
+	top: 100px;
+	.movie-item {
+		border: 1px solid #dbdbdb;
+		padding: 10px;
+		margin-right: 5px;
+		.hover:hover {
+			color: #363636;
+		}
+	}
+}
+// .grad-bg:hover{
+// 	background: linear-gradient(to right, red, purple);
+// 	color: #dbdbdb;
+// }
+@media (max-width: 576px) {
+	.wrap {
+		top: 70px;
+	}
+}

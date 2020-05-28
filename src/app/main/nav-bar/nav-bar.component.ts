@@ -1,24 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieGenre } from 'src/app/shared/movie.service';
 import { Router } from '@angular/router';
+import { MovieGenre, MovieService } from 'src/app/shared/movie.service';
+import { Movie } from 'src/app/shared/interface';
 
 @Component({
-  selector: 'app-nav-bar',
-  templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss']
+	selector: 'app-nav-bar',
+	templateUrl: './nav-bar.component.html',
+	styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+	abbr = '';
+	public movieGenres = Object.keys(MovieGenre);
 
-  public movieGenres = Object.keys(MovieGenre)
-  constructor(private route: Router) { }
+	constructor(private route: Router, private moviesService: MovieService) {}
 
-  ngOnInit(): void {
-  }
-
-  sortByGenre(movieGenre: MovieGenre){
-    this.route.navigate(['/genre', movieGenre])
-  }
-
-  
-
+	ngOnInit(): void {}
+	
 }

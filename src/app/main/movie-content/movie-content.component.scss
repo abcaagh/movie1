@@ -1,12 +1,10 @@
-ml-custom:nth-child(2n) {
-    margin-right: 5px;
+.mtx-5 {
+	position: absolute;
+	top: 100px;
+	.hover:hover {
+		color: #17a2b8;
+	}
 }
-
-.mtx-5{
-    position: absolute;
-    top: 100px;
-}
-
-.hover:hover {
-    color: red;
+.border-item {
+	border: 2px solid #a9b6b8;
 }

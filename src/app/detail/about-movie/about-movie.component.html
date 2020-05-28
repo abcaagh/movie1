@@ -1,0 +1,40 @@
+<div class="container custom">
+    <div *ngIf="currentMovie;else loading">
+        <div class="wrap d-flex justify-content-start">
+            <div class="img-body font-weight-bold">
+                <img src="/assets/movie-covers/{{currentMovie.img}}" alt="{{currentMovie.name}}">
+            </div>
+            <div class="content-body ml-2">
+                <h5 class="card-title font-weight-bold">{{currentMovie.name}}</h5>
+                <p>{{currentMovie.description}}</p>
+                <p class="badge badge-danger">{{currentMovie.rate}}</p>
+                <p class="badge badge-info ml-1">{{currentMovie.length}}</p>
+                <p>{{currentMovie.genres.join(', ') | titlecase}}</p>
+            </div>
+        </div>
+    </div>
+    
+    <hr>
+    <p class="font-weight-bolder text-center">Similar movies</p>
+    <hr>
+    <div class="row d-flex justify-content-around">
+        <div class="col-10 col-sm-6" role="button" (click)="openMovieInDetail(movie)" *ngFor="let movie of simalarMovies"
+            class="border  col-md-5  mb-3  col-5 d-flex align-items-center ml-custom">
+            <div class="">
+                <img src="/assets/movie-covers/{{movie.img}}" class="img-fluid" alt="{{movie.name}}">
+            </div>
+            <div class="">
+                <div class="card-body">
+                    <h5 class="card-title">{{movie.name}}</h5>
+                    <p class="card-text badge badge-danger">{{movie.rate}}</p>
+                    <p  class="card-text badge badge-info ml-1">{{movie.length}}</p>
+                    <small (click)="openGenre(genre)" routerLinkActive="a" class="hover" *ngFor="let genre of movie.genres">
+                        {{ genre| titlecase }}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #loading>
+    <p>Loading</p>
+</ng-template>
